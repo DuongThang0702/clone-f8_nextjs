@@ -9,6 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {},
+      colors: {
+        mainColor: "#F16239",
+      },
+      fontSize: {
+        mainSize: "1.4rem",
+      },
     },
   },
   plugins: [],
