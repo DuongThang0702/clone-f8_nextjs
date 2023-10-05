@@ -7,7 +7,7 @@ export default function PulicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-screen h-full overflow-x-hidden">
+    <div className="w-full h-full">
       <NextNProgress
         color="#29D"
         startPosition={0.3}
@@ -16,12 +16,12 @@ export default function PulicLayout({
         showOnShallow={true}
       />
       <TaskBarHomePage />
-      <div className="h-[6.5rem] w-full flex-none"></div>
-      <div className="flex relative h-full w-full">
-        <div className="absolute top-0 left-0 bottom-0">
+      <div className="h-[8rem] w-full"></div>
+      <div className="h-full w-full flex relative">
+        <div className="absolute top-0 left-0 bottom-0 w-[9rem] ">
           <SidebarHomePage />
         </div>
-        <div className="w-[8rem]"></div>
+        <div className="w-[9rem]"></div>
         {children}
       </div>
     </div>

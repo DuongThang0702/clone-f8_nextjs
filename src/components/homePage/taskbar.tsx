@@ -14,8 +14,8 @@ const Page: FC = ({}) => {
   const handleSearch = () => {};
   return (
     <>
-      <div className="fixed top-0 right-0 left-0">
-        <div className="border-b h-[6.5rem] w-full px-[2.8rem] flex justify-between">
+      <div className="fixed top-0 bg-white right-0 left-0 z-50">
+        <div className="border-b h-[6.5rem] w-full px-[2.5rem] flex justify-between">
           <div className="flex items-center gap-x-6">
             <div className="w-[3.8rem] h-[3.8rem]">
               <Image

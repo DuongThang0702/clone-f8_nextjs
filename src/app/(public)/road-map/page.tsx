@@ -3,9 +3,7 @@ import { FC } from "react";
 const Page: FC = ({}) => {
   return (
     <>
-      <div>
-        <h1>content</h1>
-      </div>
+      <h1>road-map</h1>
     </>
   );
 };
