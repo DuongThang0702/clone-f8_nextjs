@@ -46,13 +46,13 @@ const elSidebar: Menu[] = [
 
 const Page: FC = ({}) => {
   return (
-    <>
+    <div className="fixed">
       <div className=" w-full h-full px-[0.8rem]">
         <div className="flex flex-col items-center gap-y-10">
           <MenuSidebar items={elSidebar} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

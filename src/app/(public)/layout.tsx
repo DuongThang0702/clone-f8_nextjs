@@ -1,5 +1,5 @@
 "use client";
-import { SidebarHomePage, TaskBarHomePage } from "@/components";
+import { SidebarHomePage, HeaderHomePage } from "@/components";
 import NextNProgress from "nextjs-progressbar";
 export default function PulicLayout({
   children,
@@ -15,7 +15,7 @@ export default function PulicLayout({
         height={3}
         showOnShallow={true}
       />
-      <TaskBarHomePage />
+      <HeaderHomePage />
       <div className="h-[8rem] w-full"></div>
       <div className="h-full w-full flex relative">
         <div className="absolute top-0 left-0 bottom-0 w-[9rem] ">

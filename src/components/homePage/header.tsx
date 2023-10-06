@@ -1,6 +1,9 @@
+import { Routes } from "@/utils/contants";
 import icon from "@/utils/icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 
@@ -12,22 +15,43 @@ const Page: FC = ({}) => {
     formState: { errors },
   } = useForm();
   const handleSearch = () => {};
+  const pathName = usePathname();
   return (
     <>
       <div className="fixed top-0 bg-white right-0 left-0 z-50">
         <div className="border-b h-[6.5rem] w-full px-[2.5rem] flex justify-between">
-          <div className="flex items-center gap-x-6">
-            <div className="w-[3.8rem] h-[3.8rem]">
+          <Link
+            href={pathName !== Routes.HOME_PAGE ? Routes.HOME_PAGE : ""}
+            className={`flex items-center gap-x-6 w-[14%] group ${
+              pathName === Routes.HOME_PAGE
+                ? "cursor-default"
+                : "cursor-pointer"
+            }`}
+          >
+            <div className="w-[3.8rem] h-[3.8rem] flex-none">
               <Image
                 src={"/logo.png"}
                 height={38}
                 width={38}
                 alt="logo"
-                className=" rounded-xl"
+                className="rounded-xl cursor-pointer"
               />
             </div>
-            <h1 className="font-bold text-2xl">Học Lập Trình Để Đi Làm</h1>
-          </div>
+            {pathName === Routes.HOME_PAGE ? (
+              <h1 className="font-bold text-2xl">Học Lập Trình Để Đi Làm</h1>
+            ) : (
+              <Link
+                href={`${Routes.HOME_PAGE}`}
+                className="font-semibold opacity-60 text-2xl flex items-center gap-x-2 relative"
+              >
+                <FontAwesomeIcon
+                  icon={icon.faChevronLeft}
+                  className="text-base ml-4 group-hover:ml-0 ease-linear duration-500 transition-all"
+                />
+                <span className="absolute left-10 w-[6rem]">Quay lại</span>
+              </Link>
+            )}
+          </Link>
           <form
             onSubmit={handleSubmit(handleSearch)}
             className="flex items-center w-[24%] relative"

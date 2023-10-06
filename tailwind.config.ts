@@ -15,6 +15,9 @@ const config: Config = {
       fontSize: {
         mainSize: "1.4rem",
       },
+      boxShadow: {
+        sidebar: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+      },
     },
   },
   plugins: [],
