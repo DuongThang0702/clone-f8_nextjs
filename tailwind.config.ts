@@ -11,6 +11,8 @@ const config: Config = {
       backgroundImage: {},
       colors: {
         mainColor: "#F16239",
+        gradient1: "#7f00ff",
+        gradient2: "#2193b0",
       },
       fontSize: {
         mainSize: "1.4rem",

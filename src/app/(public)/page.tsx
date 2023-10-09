@@ -1,10 +1,12 @@
+"use client";
+import { BannerHomePage } from "@/components";
 import { FC } from "react";
 
 const Page: FC = ({}) => {
   return (
     <>
-      <div>
-        <h1>content</h1>
+      <div className="w-[90%] h-full mx-auto">
+        <BannerHomePage />
       </div>
     </>
   );

@@ -6,6 +6,7 @@ import {
   faFileSignature,
   faPen,
   faChevronLeft,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icon = {
@@ -16,5 +17,6 @@ const icon = {
   faFileSignature,
   faPen,
   faChevronLeft,
+  faChevronRight,
 };
 export default icon;

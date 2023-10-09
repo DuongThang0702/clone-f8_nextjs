@@ -18,10 +18,9 @@ export default function PulicLayout({
       <HeaderHomePage />
       <div className="h-[8rem] w-full"></div>
       <div className="h-full w-full flex relative">
-        <div className="absolute top-0 left-0 bottom-0 w-[9rem] ">
+        <div className="absolute top-0 left-0 bottom-0">
           <SidebarHomePage />
         </div>
-        <div className="w-[9rem]"></div>
         {children}
       </div>
     </div>

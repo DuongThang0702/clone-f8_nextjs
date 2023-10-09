@@ -19,12 +19,15 @@
     "nextjs-progressbar": "^0.0.16",
     "react": "latest",
     "react-dom": "latest",
-    "react-hook-form": "^7.47.0"
+    "react-hook-form": "^7.47.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-slick": "^0.23.10",
     "autoprefixer": "latest",
     "postcss": "latest",
     "tailwindcss": "latest",
