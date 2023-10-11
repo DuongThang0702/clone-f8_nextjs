@@ -3,4 +3,6 @@ export enum Routes {
   BLOG = "/blog",
   ROAD_MAP = "/road-map",
   NEW_POST = "/new-post",
+
+  COURSE = "course",
 }

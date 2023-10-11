@@ -21,7 +21,9 @@ export default function PulicLayout({
         <div className="absolute top-0 left-0 bottom-0">
           <SidebarHomePage />
         </div>
-        {children}
+        <div className="w-[90%] h-full mx-auto flex flex-col gap-y-20">
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const SlickArrowLeft = ({
     <div>
       <FontAwesomeIcon
         icon={icon.faChevronLeft}
-        className="text-xl absolute left-[.6rem] top-[.5rem]"
+        className="text-2xl absolute left-[1rem] top-[.6rem]"
       />
     </div>
   </div>
@@ -31,7 +31,7 @@ const SlickArrowRight = ({
   <div {...props}>
     <FontAwesomeIcon
       icon={icon.faChevronRight}
-      className="text-xl absolute left-[.6rem] top-[.5rem]"
+      className="text-2xl absolute left-[1rem] top-[.6rem]"
     />
   </div>
 );

@@ -3,11 +3,14 @@ import icon from "@/utils/icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 
+// href={}
+
 const Page: FC = ({}) => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -40,8 +43,8 @@ const Page: FC = ({}) => {
             {pathName === Routes.HOME_PAGE ? (
               <h1 className="font-bold text-2xl">Học Lập Trình Để Đi Làm</h1>
             ) : (
-              <Link
-                href={`${Routes.HOME_PAGE}`}
+              <div
+                onClick={() => router.push(`${Routes.HOME_PAGE}`)}
                 className="font-semibold opacity-60 text-2xl flex items-center gap-x-2 relative"
               >
                 <FontAwesomeIcon
@@ -49,7 +52,7 @@ const Page: FC = ({}) => {
                   className="text-base ml-4 group-hover:ml-0 ease-linear duration-500 transition-all"
                 />
                 <span className="absolute left-10 w-[6rem]">Quay lại</span>
-              </Link>
+              </div>
             )}
           </Link>
           <form

@@ -36,8 +36,8 @@ a {
 .slick-prev,
 .slick-next {
   z-index: 10;
-  padding: 1rem;
-  color: black;
+  padding: 1.4rem;
+  color: gray;
   background-color: white;
   border-radius: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -46,7 +46,7 @@ a {
 .slick-prev:hover,
 .slick-next:hover {
   background-color: white;
-  color: black;
+  color: gray;
 }
 
 .slick-prev::before,

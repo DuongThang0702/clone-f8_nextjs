@@ -13,6 +13,7 @@ const config: Config = {
         mainColor: "#F16239",
         gradient1: "#7f00ff",
         gradient2: "#2193b0",
+        blackOpacity: "rgba(60, 60, 60, .8)",
       },
       fontSize: {
         mainSize: "1.4rem",
