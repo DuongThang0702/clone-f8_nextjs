@@ -21,7 +21,7 @@ const Page: FC = ({}) => {
   const pathName = usePathname();
   return (
     <>
-      <div className="fixed top-0 bg-white right-0 left-0 z-50">
+      <div className="fixed top-0 bg-white right-0 left-0 z-30">
         <div className="border-b h-[6.5rem] w-full px-[2.5rem] flex justify-between">
           <Link
             href={pathName !== Routes.HOME_PAGE ? Routes.HOME_PAGE : ""}

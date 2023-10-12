@@ -5,4 +5,5 @@ export enum Routes {
   NEW_POST = "/new-post",
 
   COURSE = "course",
+  OPENING_DAY = "lich-khoa-hoc",
 }

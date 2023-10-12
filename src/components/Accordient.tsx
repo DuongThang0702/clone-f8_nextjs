@@ -10,11 +10,13 @@ interface Props {
 const Page: FC<Props> = ({ item }) => {
   const [Active, setActive] = useState<boolean>(false);
   return (
-    <>
+    <div
+      onClick={() => setActive((prev) => !prev)}
+      className={`group ${Active && `is-active`} cursor-pointer`}
+    >
       <div
-        onClick={() => setActive((prev) => !prev)}
         className={`flex bg-[#F5F5F5] rounded-xl p-6 justify-between
-         group ${Active && `is-active`} cursor-pointer`}
+        `}
       >
         <div className="flex items-center gap-x-4">
           <FontAwesomeIcon
@@ -34,7 +36,20 @@ const Page: FC<Props> = ({ item }) => {
           />
         </div>
       </div>
-    </>
+      <div className={`group-[.is-active]:block hidden w-[90%] mx-auto`}>
+        <div className="flex flex-col gap-4 mt-4">
+          {item.lesson.map((el, index) => (
+            <div key={index} className="flex gap-x-4 items-center">
+              <FontAwesomeIcon
+                icon={icon.faCirclePlay}
+                className="text-mainColor opacity-70"
+              />
+              <h1>{el.title}</h1>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

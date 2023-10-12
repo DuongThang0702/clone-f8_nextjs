@@ -6,7 +6,7 @@ const Page: FC = ({}) => {
   return (
     <>
       <div className="text-black w-[95%] mx-auto">
-        <div className="ml-[3rem]">
+        <div className="">
           <SliderBanner items={mockBanner} />
         </div>
       </div>

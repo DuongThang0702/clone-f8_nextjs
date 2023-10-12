@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import icon from "@/utils/icon";
 import Image from "next/image";
 import { Accordient } from "@/components";
+import Link from "next/link";
+import { Routes } from "@/utils/contants";
 interface Props {
   params: { idCourse: string };
 }
@@ -62,13 +64,14 @@ const Page: FC<Props> = ({ params }) => {
                       alt="thumbnail"
                       className="rounded-3xl"
                     />
-                    <div
+                    <Link
+                      href={`${Routes.OPENING_DAY}/${el.id}`}
                       className="flex w-[30%] items-center justify-center mt-8 
                     py-4 px-6 rounded-full bg-mainColor text-white font-semibold text-2xl
                     cursor-pointer hover:opacity-75 transition-all duration-150 ease-linear"
                     >
                       Đăng ký học
-                    </div>
+                    </Link>
                   </div>
                 </div>
               )}

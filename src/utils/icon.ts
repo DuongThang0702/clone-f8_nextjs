@@ -8,6 +8,8 @@ import {
   faChevronLeft,
   faChevronRight,
   faCheck,
+  faCirclePlay,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icon = {
@@ -20,5 +22,7 @@ const icon = {
   faChevronLeft,
   faChevronRight,
   faCheck,
+  faCirclePlay,
+  faXmark,
 };
 export default icon;
