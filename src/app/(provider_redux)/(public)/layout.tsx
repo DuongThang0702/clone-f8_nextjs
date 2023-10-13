@@ -1,5 +1,5 @@
 "use client";
-import { SidebarHomePage, HeaderHomePage } from "@/components";
+import { SidebarHomePage, HeaderHomePage, FooterHomePage } from "@/components";
 import NextNProgress from "nextjs-progressbar";
 export default function PulicLayout({
   children,
@@ -7,7 +7,7 @@ export default function PulicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full relative">
       <NextNProgress
         color="#29D"
         startPosition={0.3}
@@ -26,6 +26,8 @@ export default function PulicLayout({
           {children}
         </div>
       </div>
+      <div className="w-[9rem] flex-none"></div>
+      <FooterHomePage />
     </div>
   );
 }
