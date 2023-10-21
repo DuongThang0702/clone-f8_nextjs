@@ -1,13 +1,26 @@
 "use client";
 import { SidebarHomePage, HeaderHomePage, FooterHomePage } from "@/components";
+import { RootState } from "@/redux/store";
 import NextNProgress from "nextjs-progressbar";
+import { useSelector } from "react-redux";
 export default function PulicLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { isShowModal, modalChildren } = useSelector(
+    (state: RootState) => state.app
+  );
+
   return (
     <div className="w-full h-full relative">
+      {isShowModal && (
+        <div className="bg-blackOpacity w-full h-full fixed left-0 right-0 top-0 z-50">
+          <div className="relative w-2/3 h-2/3 top-[10%] left-[20%]">
+            {modalChildren}
+          </div>
+        </div>
+      )}
       <NextNProgress
         color="#29D"
         startPosition={0.3}

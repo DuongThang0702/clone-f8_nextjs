@@ -1,28 +1,28 @@
-import icon from "@/utils/icon";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dispatch, FC, SetStateAction } from "react";
-interface Props {
-  title: string;
-  setModal: Dispatch<
-    SetStateAction<{
-      isShowModal: boolean;
-      title: string;
-    }>
-  >;
-}
+import { showModel } from "@/redux/app";
+import { AppDispatch, RootState } from "@/redux/store";
+import { FC, useEffect, memo, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const Page: FC<Props> = ({ title, setModal }) => {
+const Page: FC = ({}) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const modalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const ShowTarget = (e: MouseEvent) => {
+      if (!modalRef.current) {
+        return;
+      }
+      if (!modalRef.current.contains(e.target as Node))
+        dispatch(showModel({ isShowModal: false, modalChildren: null }));
+    };
+    document.addEventListener("click", ShowTarget);
+    return () => removeEventListener("click", ShowTarget);
+  }, []);
   return (
-    <div className="w-full h-full absolute top-[25%] left-[50%] text-white p-10 bg-[#20417D] rounded-2xl">
-      <div className="text-3xl pt-8 font-bold justify-between flex">
-        <span className="w-full">{title}</span>
-        <span onClick={() => setModal({ isShowModal: false, title: "" })}>
-          <FontAwesomeIcon
-            icon={icon.faXmark}
-            className="text-3xl cursor-pointer"
-          />
-        </span>
-      </div>
+    <div
+      ref={modalRef}
+      className="w-full h-full text-white p-10 bg-[#20417D] rounded-2xl"
+    >
+      <div className="text-3xl pt-8 font-bold justify-between flex"></div>
       <div className="w-full h-[80%] m-auto bg-white mt-12 relative rounded-2xl text-black">
         <div className="py-10 px-12 flex flex-col gap-y-10">
           <div>
@@ -121,4 +121,4 @@ const Page: FC<Props> = ({ title, setModal }) => {
   );
 };
 
-export default Page;
+export default memo(Page);

@@ -1,44 +1,22 @@
 "use client";
-import { FC, Fragment, useEffect, useState } from "react";
+import { FC, Fragment, useState } from "react";
 import { mockBanner } from "@/_mock";
 import Image from "next/image";
 import { ModalRegister } from "@/components";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { showModel } from "@/redux/app";
 
 interface Props {
   params: { idCourse: string };
 }
 
 const Page: FC<Props> = ({ params }) => {
-  const [isShowModal, setIsShowModal] = useState<{
-    isShowModal: boolean;
-    title: string;
-  }>({
-    isShowModal: false,
-    title: "",
-  });
-  useEffect(() => {
-    const modal = document.getElementById("modal");
-    const handleShowModal = (e: MouseEvent) => {
-      if (modal && !modal?.contains(e.target as Node))
-        setIsShowModal({ isShowModal: false, title: "" });
-    };
-    document.addEventListener("click", handleShowModal);
-    return () => removeEventListener("click", handleShowModal);
-  }, []);
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <>
-      {isShowModal.isShowModal && (
-        <div className="bg-blackOpacity fixed top-0 left-0 bottom-0 right-0 z-50 ">
-          <div className="relative w-[100rem] h-[60rem]">
-            <ModalRegister
-              title={isShowModal.title}
-              setModal={setIsShowModal}
-            />
-          </div>
-        </div>
-      )}
-      <div className="w-1/2 mx-auto mt-[1%]" id="close-modal">
+      <div className="w-1/2 mx-auto mt-[1%]">
         <div>
           <Image
             src={`/lich-khai-giang.png`}
@@ -95,10 +73,12 @@ const Page: FC<Props> = ({ params }) => {
                       </th>
                       <th
                         onClick={() => {
-                          setIsShowModal({
-                            isShowModal: true,
-                            title: el.title,
-                          });
+                          dispatch(
+                            showModel({
+                              isShowModal: true,
+                              modalChildren: <ModalRegister />,
+                            })
+                          );
                         }}
                         className="text-center py-6 cursor-pointer group"
                       >

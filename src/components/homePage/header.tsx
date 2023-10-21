@@ -4,21 +4,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-// href={}
 
 const Page: FC = ({}) => {
   const router = useRouter();
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const pathName = usePathname();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+  const handleClickOutside = () => {};
+  useEffect(() => {}, []);
+
   const handleSearch = () => {};
-  const pathName = usePathname();
   return (
     <>
       <div className="fixed top-0 bg-white right-0 left-0 z-30">
@@ -71,8 +73,14 @@ const Page: FC = ({}) => {
               className="text-mainSize pl-[3.6rem] px-4 h-16 w-full border-2 rounded-full"
             />
           </form>
-          <div className="w-[7%] h-[59%] my-auto">
-            <div className=" flex items-center bg-mainColor justify-center h-full rounded-full">
+          <div
+            className="w-[7%] h-[59%] my-auto"
+            onClick={() => setIsShowModal((prev) => !prev)}
+          >
+            <div
+              onClick={() => setIsShowModal((prev) => !prev)}
+              className=" flex items-center bg-mainColor justify-center h-full rounded-full"
+            >
               <button className="font-semibold text-[1.4rem] text-white">
                 Đăng nhập
               </button>
