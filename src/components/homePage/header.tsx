@@ -1,3 +1,5 @@
+import { showModel } from "@/redux/app";
+import { AppDispatch } from "@/redux/store";
 import { Routes } from "@/utils/contants";
 import icon from "@/utils/icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,10 +8,12 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FC, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { LoginModal } from "..";
 
 const Page: FC = ({}) => {
   const router = useRouter();
-  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const dispatch = useDispatch<AppDispatch>();
   const pathName = usePathname();
   const {
     register,
@@ -75,12 +79,13 @@ const Page: FC = ({}) => {
           </form>
           <div
             className="w-[7%] h-[59%] my-auto"
-            onClick={() => setIsShowModal((prev) => !prev)}
+            onClick={() =>
+              dispatch(
+                showModel({ isShowModal: true, modalChildren: <LoginModal /> })
+              )
+            }
           >
-            <div
-              onClick={() => setIsShowModal((prev) => !prev)}
-              className=" flex items-center bg-mainColor justify-center h-full rounded-full"
-            >
+            <div className=" flex items-center bg-mainColor justify-center h-full rounded-full">
               <button className="font-semibold text-[1.4rem] text-white">
                 Đăng nhập
               </button>

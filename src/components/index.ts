@@ -6,3 +6,4 @@ export { default as Accordient } from "./Accordient";
 export { default as ModalRegister } from "./modal/modaleResgister";
 export { default as FooterHomePage } from "./layout/footerHomePage";
 export { default as LoginModal } from "./modal/login";
+export { default as InputField } from "./form/input";
