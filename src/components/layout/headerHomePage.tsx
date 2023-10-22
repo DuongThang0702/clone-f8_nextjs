@@ -1,5 +1,5 @@
 import { showModel } from "@/redux/app";
-import { AppDispatch } from "@/redux/store";
+import { AppDispatch, RootState } from "@/redux/store";
 import { Routes } from "@/utils/contants";
 import icon from "@/utils/icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,11 +8,14 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FC, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LoginModal } from "..";
+import { getUserCurrent } from "@/redux/user/asyncAction";
 
 const Page: FC = ({}) => {
   const router = useRouter();
+  const { isLoggedIn, current } = useSelector((state: RootState) => state.user);
+  const [isShowOptions, setIsShowOptions] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
   const pathName = usePathname();
   const {
@@ -21,10 +24,13 @@ const Page: FC = ({}) => {
     watch,
     formState: { errors },
   } = useForm();
-  const handleClickOutside = () => {};
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setTimeout(() => {
+      if (isLoggedIn) dispatch(getUserCurrent());
+    }, 800);
+  }, [isLoggedIn, dispatch]);
 
-  const handleSearch = () => {};
+  const handleSearch = (data: any) => console.log(data);
   return (
     <>
       <div className="fixed top-0 bg-white right-0 left-0 z-30">
@@ -77,20 +83,39 @@ const Page: FC = ({}) => {
               className="text-mainSize pl-[3.6rem] px-4 h-16 w-full border-2 rounded-full"
             />
           </form>
-          <div
-            className="w-[7%] h-[59%] my-auto"
-            onClick={() =>
-              dispatch(
-                showModel({ isShowModal: true, modalChildren: <LoginModal /> })
-              )
-            }
-          >
-            <div className=" flex items-center bg-mainColor justify-center h-full rounded-full">
-              <button className="font-semibold text-[1.4rem] text-white">
-                Đăng nhập
-              </button>
+          {isLoggedIn && current ? (
+            <div className="w-[7%] h-[59%] my-auto">
+              <div className="text-2xl flex items-center justify-center h-full gap-x-8">
+                <h1 className="select-none ">Welcome, {current.fullname}</h1>
+                <div className="w-[4rem]  h-[4rem] cursor-pointer">
+                  <Image
+                    src={current.image ? current.image : "/avatardefault.png"}
+                    height={50}
+                    width={50}
+                    alt="avatar"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div
+              className="w-[7%] h-[59%] my-auto"
+              onClick={() =>
+                dispatch(
+                  showModel({
+                    isShowModal: true,
+                    modalChildren: <LoginModal />,
+                  })
+                )
+              }
+            >
+              <div className=" flex items-center bg-mainColor justify-center h-full rounded-full">
+                <button className="font-semibold text-[1.4rem] text-white">
+                  Đăng nhập
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

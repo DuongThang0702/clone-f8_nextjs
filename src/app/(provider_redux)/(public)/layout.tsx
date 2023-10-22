@@ -16,7 +16,7 @@ export default function PulicLayout({
     <div className="w-full h-full relative">
       {isShowModal && (
         <div className="bg-blackOpacity w-full h-full fixed left-0 right-0 top-0 z-50">
-          <div className="relative w-2/3 h-2/3 top-[10%] left-[20%]">
+          <div className="relative max-w-full max-h-full top-[10%] left-[50%] translate-x-[-50%]">
             {modalChildren}
           </div>
         </div>

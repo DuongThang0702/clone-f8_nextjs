@@ -7,15 +7,15 @@ const Page: FC = ({}) => {
   const dispatch = useDispatch<AppDispatch>();
   const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const ShowTarget = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent) => {
       if (!modalRef.current) {
         return;
       }
       if (!modalRef.current.contains(e.target as Node))
         dispatch(showModel({ isShowModal: false, modalChildren: null }));
     };
-    document.addEventListener("click", ShowTarget);
-    return () => removeEventListener("click", ShowTarget);
+    document.addEventListener("click", handleClickOutside);
+    return () => removeEventListener("click", handleClickOutside);
   }, []);
   return (
     <div

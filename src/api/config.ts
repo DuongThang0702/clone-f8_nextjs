@@ -1,3 +1,4 @@
+import { LocalStorage } from "@/utils/type";
 import axios from "axios";
 
 const axiosClient = axios.create({
@@ -10,6 +11,14 @@ const axiosClient = axios.create({
 // Add a request interceptor
 axiosClient.interceptors.request.use(
   function (config: any) {
+    let localStorage = window.localStorage.getItem("persist:ShortCourse/user");
+
+    if (localStorage && typeof localStorage === "string") {
+      const data: LocalStorage = JSON.parse(localStorage);
+      const access_token = JSON.parse(data?.access_token);
+      config.headers = { authorization: access_token };
+      return config;
+    }
     return config;
   },
   function (error) {

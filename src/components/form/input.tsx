@@ -57,7 +57,7 @@ const inputForm: FC<InputForm> = ({
         defaultValue={defaultValue}
       />
       {errors && (
-        <small className="text-red font-semibold text-base">{errors}</small>
+        <small className="text-red-700 font-semibold text-base">{errors}</small>
       )}
     </>
   );
