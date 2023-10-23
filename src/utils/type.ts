@@ -25,4 +25,6 @@ export type UserCurrent = {
   email: string;
   is_blocked: boolean;
   role: string;
+  fullname: string;
+  avatar: string;
 };

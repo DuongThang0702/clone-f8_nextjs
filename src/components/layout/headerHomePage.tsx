@@ -9,7 +9,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { FC, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginModal } from "..";
+import { LoginModal, OptionsHomePage } from "..";
 import { getUserCurrent } from "@/redux/user/asyncAction";
 
 const Page: FC = ({}) => {
@@ -84,10 +84,13 @@ const Page: FC = ({}) => {
             />
           </form>
           {isLoggedIn && current ? (
-            <div className="w-[7%] h-[59%] my-auto">
+            <div className="w-[7%] h-[59%] my-auto relative">
               <div className="text-2xl flex items-center justify-center h-full gap-x-8">
                 <h1 className="select-none ">Welcome, {current.fullname}</h1>
-                <div className="w-[4rem]  h-[4rem] cursor-pointer">
+                <div
+                  className="w-[4rem]  h-[4rem] cursor-pointer"
+                  onClick={() => setIsShowOptions((prev) => !prev)}
+                >
                   <Image
                     src={current.image ? current.image : "/avatardefault.png"}
                     height={50}
@@ -96,6 +99,11 @@ const Page: FC = ({}) => {
                   />
                 </div>
               </div>
+              {isShowOptions && (
+                <div className="absolute left-[-5rem] top-[4.5rem]">
+                  <OptionsHomePage user={current} />
+                </div>
+              )}
             </div>
           ) : (
             <div

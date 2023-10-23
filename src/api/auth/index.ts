@@ -11,3 +11,6 @@ export const apiLogin = (data: LoginData) =>
 
 export const apiGetCurrent = () =>
   axiosClient({ url: "/auth/current", method: "GET" });
+
+export const apiLogout = () =>
+  axiosClient({ url: "/auth/logout", method: "DELETE", withCredentials: true });
