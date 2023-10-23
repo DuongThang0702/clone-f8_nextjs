@@ -27,4 +27,10 @@ export type UserCurrent = {
   role: string;
   fullname: string;
   avatar: string;
+  phoneNumber: number;
+  sex: string;
+  studyTime: Date;
+  graduatedFromSchool: string;
+  major: string;
+  dateOfBirth: Date;
 };

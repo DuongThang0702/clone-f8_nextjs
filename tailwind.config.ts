@@ -14,6 +14,7 @@ const config: Config = {
         gradient1: "#7f00ff",
         gradient2: "#2193b0",
         blackOpacity: "rgba(60, 60, 60, .8)",
+        grayMain: "#9DA1AA",
       },
       fontSize: {
         mainSize: "1.4rem",

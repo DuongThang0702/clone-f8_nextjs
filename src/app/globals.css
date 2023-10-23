@@ -17,6 +17,7 @@ html {
 
 body {
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 img {
@@ -51,5 +52,9 @@ a {
 
 .slick-prev::before,
 .slick-next::before {
+  display: none;
+}
+
+::-webkit-scrollbar {
   display: none;
 }

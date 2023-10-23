@@ -7,3 +7,10 @@ export enum Routes {
   COURSE = "course",
   OPENING_DAY = "lich-khoa-hoc",
 }
+
+export enum RoutesAdmin {
+  ADMIN = "admin",
+  DASHBOARD = "dash-board",
+  COURSE = "course",
+  USER = "user",
+}

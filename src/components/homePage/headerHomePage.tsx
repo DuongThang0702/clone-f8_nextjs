@@ -84,11 +84,11 @@ const Page: FC = ({}) => {
             />
           </form>
           {isLoggedIn && current ? (
-            <div className="w-[7%] h-[59%] my-auto relative">
+            <div className="w-[14%] h-[59%] my-auto relative">
               <div className="text-2xl flex items-center justify-center h-full gap-x-8">
                 <h1 className="select-none ">Welcome, {current.fullname}</h1>
                 <div
-                  className="w-[4rem]  h-[4rem] cursor-pointer"
+                  className="w-[4rem] h-[4rem] cursor-pointer"
                   onClick={() => setIsShowOptions((prev) => !prev)}
                 >
                   <Image
@@ -100,7 +100,7 @@ const Page: FC = ({}) => {
                 </div>
               </div>
               {isShowOptions && (
-                <div className="absolute left-[-5rem] top-[4.5rem]">
+                <div className="absolute left-[6rem] top-[4.5rem]">
                   <OptionsHomePage user={current} />
                 </div>
               )}
