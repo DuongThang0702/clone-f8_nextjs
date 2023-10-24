@@ -1,7 +1,7 @@
 import { apiLogout } from "@/api";
 import { AppDispatch } from "@/redux/store";
 import { logout } from "@/redux/user";
-import { RoutesAdmin } from "@/utils/contants";
+import { RoutesAdmin } from "@/utils/path";
 import { UserCurrent } from "@/utils/type";
 import { current } from "@reduxjs/toolkit";
 import { AxiosError, AxiosResponse } from "axios";
@@ -21,8 +21,6 @@ const Page: FC<Props> = ({ user }) => {
   const handleLogtout = async () => {
     await apiLogout()
       .then((rs: AxiosResponse) => {
-        console.log(rs);
-
         if (rs.status >= 400 && rs.status <= 599)
           toast.error("something went wrong!");
         if (rs.status >= 100 && rs.status <= 299) dispatch(logout());

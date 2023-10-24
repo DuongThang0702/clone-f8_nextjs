@@ -7,7 +7,7 @@ import icon from "@/utils/icon";
 import Image from "next/image";
 import { Accordient } from "@/components";
 import Link from "next/link";
-import { Routes } from "@/utils/contants";
+import { Routes } from "@/utils/path";
 interface Props {
   params: { idCourse: string };
 }

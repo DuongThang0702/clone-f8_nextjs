@@ -1,6 +1,6 @@
 import { showModel } from "@/redux/app";
 import { AppDispatch, RootState } from "@/redux/store";
-import { Routes } from "@/utils/contants";
+import { Routes } from "@/utils/path";
 import icon from "@/utils/icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";

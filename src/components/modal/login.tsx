@@ -130,7 +130,7 @@ const Page: FC = ({}) => {
             disabled={!isDirty || !isValid}
             type="submit"
             className="text-center mt-10 py-6 px-4 bg-[#6DD5FA] rounded-full text-white
-         block text-3xl font-bold"
+         block text-3xl font-bold disabled:opacity-70"
           >
             Đăng nhập
           </button>

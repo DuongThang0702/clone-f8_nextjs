@@ -1,5 +1,5 @@
 import { _mockBanner } from "@/_mock";
-import { Routes } from "@/utils/contants";
+import { Routes } from "@/utils/path";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";

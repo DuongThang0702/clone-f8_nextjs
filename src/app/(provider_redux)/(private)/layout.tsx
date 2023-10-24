@@ -2,7 +2,7 @@
 
 import { HeaderAdmin, SidebarAdmin } from "@/components";
 import { RootState } from "@/redux/store";
-import { Routes, RoutesAdmin } from "@/utils/contants";
+import { Routes, RoutesAdmin } from "@/utils/path";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 export default function AdminLayout({

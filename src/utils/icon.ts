@@ -13,6 +13,8 @@ import {
   faGaugeHigh,
   faPeopleGroup,
   faBookTanakh,
+  faListCheck,
+  faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icon = {
@@ -30,5 +32,7 @@ const icon = {
   faGaugeHigh,
   faPeopleGroup,
   faBookTanakh,
+  faListCheck,
+  faCirclePlus,
 };
 export default icon;

@@ -34,3 +34,13 @@ export type UserCurrent = {
   major: string;
   dateOfBirth: Date;
 };
+
+export type TitemSidebar = {
+  id: number;
+  icon: IconProp;
+  title: string;
+  path: string;
+  type: "single" | "parent";
+  options?: TitemSidebar[];
+  lastIcon?: IconProp;
+};
