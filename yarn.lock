@@ -186,6 +186,14 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tinymce/tinymce-react@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-4.3.0.tgz#5e2f5a58526a1bba9710f54f5fcf16abd4c742a1"
+  integrity sha512-iB4cUsYfcJL4NGuKhqCGYuTmFTje3nPxyPv1HxprTsp/YMGuuiiSNWrv3zwI31QX5Cn8qeq9MrMDnbxuRugHyg==
+  dependencies:
+    prop-types "^15.6.2"
+    tinymce "^6.3.1"
+
 "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.3.tgz#8bb41d9a88164f82dd2745ff05e637e655f34d19"
@@ -871,7 +879,7 @@ postcss@^8.4.23, postcss@latest:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prop-types@^15.8.1:
+prop-types@^15.6.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -1137,6 +1145,11 @@ tiny-case@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tiny-case/-/tiny-case-1.0.3.tgz#d980d66bc72b5d5a9ca86fb7c9ffdb9c898ddd03"
   integrity sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==
+
+tinymce@^6.3.1:
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-6.7.2.tgz#39b077d26c171cb41341b2eef126e7811bb78697"
+  integrity sha512-6h/02jHmXyghekFzmzccZxUUEFtlPEKHxOd+gd49bjno3ybavZInPIaDd/pp2GeEwsFm20oGgJCL7UiebXm9dw==
 
 to-regex-range@^5.0.1:
   version "5.0.1"

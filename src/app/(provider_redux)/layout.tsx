@@ -7,7 +7,7 @@ export default function ReduxLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="w-full h-full">
       <Providers>{children}</Providers>
       <ToastContainer
         position="top-right"
@@ -21,6 +21,6 @@ export default function ReduxLayout({
         pauseOnHover
         theme="colored"
       />
-    </>
+    </div>
   );
 }

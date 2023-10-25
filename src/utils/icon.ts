@@ -15,6 +15,8 @@ import {
   faBookTanakh,
   faListCheck,
   faCirclePlus,
+  faUpload,
+  faEllipsis,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icon = {
@@ -34,5 +36,7 @@ const icon = {
   faBookTanakh,
   faListCheck,
   faCirclePlus,
+  faUpload,
+  faEllipsis,
 };
 export default icon;

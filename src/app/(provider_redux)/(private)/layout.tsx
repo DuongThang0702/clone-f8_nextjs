@@ -15,7 +15,7 @@ export default function AdminLayout({
   if (!current || !isLoggedIn || current.role !== process.env.NEXT_PUBLIC_ADMIN)
     router.push(`/${Routes.HOME_PAGE}`);
   return (
-    <div className="relative w-full min-h-screen flex">
+    <div className="relative w-screen h-screen flex">
       <div className="absolute left-0 top-0 bottom-0 right-[85%]">
         <SidebarAdmin />
       </div>

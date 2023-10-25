@@ -10,3 +10,4 @@ export { default as InputField } from "./form/input";
 export { default as OptionsHomePage } from "./menu/menuOptionsHomepage";
 export { default as SidebarAdmin } from "./admin/sidebar";
 export { default as HeaderAdmin } from "./admin/header";
+export { default as MarkdownEditor } from "./form/markdownEditor";

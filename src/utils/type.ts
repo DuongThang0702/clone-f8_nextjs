@@ -66,3 +66,11 @@ export type itemTable = {
   title: string;
   style?: string;
 };
+
+export type CreateCourse = {
+  title: string;
+  description: string;
+  promise: string;
+  price: number;
+  thumbnail: { 0: File; length: number };
+};
