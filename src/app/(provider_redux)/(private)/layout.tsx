@@ -16,8 +16,10 @@ export default function AdminLayout({
     router.push(`/${Routes.HOME_PAGE}`);
   return (
     <div className="relative w-full min-h-screen flex">
-      <SidebarAdmin />
-      <div className="w-[16%] flex-none"></div>
+      <div className="absolute left-0 top-0 bottom-0 right-[85%]">
+        <SidebarAdmin />
+      </div>
+      <div className="w-[15%] flex-none"></div>
       {children}
     </div>
   );

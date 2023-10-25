@@ -4,6 +4,7 @@ import userSlice from "./user";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
+const isClient = typeof window !== "undefined";
 
 const commonConfig = {
   key: "ShortCourse/user",

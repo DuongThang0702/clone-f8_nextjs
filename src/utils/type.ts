@@ -44,3 +44,25 @@ export type TitemSidebar = {
   options?: TitemSidebar[];
   lastIcon?: IconProp;
 };
+
+export type User = {
+  avatar: string;
+  createdAt: string;
+  dateOfBirth: string;
+  email: string;
+  fullname: string;
+  graduatedFromSchool: string;
+  is_blocked: boolean;
+  major: string;
+  phoneNumber: number;
+  role: string;
+  sex: string;
+  studyTime: string;
+  _id: string;
+};
+
+export type itemTable = {
+  id: number;
+  title: string;
+  style?: string;
+};

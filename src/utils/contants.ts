@@ -1,6 +1,6 @@
 import icon from "./icon";
 import { Routes, RoutesAdmin } from "./path";
-import { Menu, TitemSidebar } from "./type";
+import { Menu, TitemSidebar, itemTable } from "./type";
 
 export const itemSidebar: TitemSidebar[] = [
   {
@@ -81,4 +81,17 @@ export const elSidebarHomePage: Menu[] = [
     text: "Bài viết",
     link: Routes.BLOG,
   },
+];
+
+export const FieldsTableAdmin: itemTable[] = [
+  { id: 1, title: "#" },
+  { id: 2, title: "Email" },
+  { id: 3, title: "FullName" },
+  { id: 4, title: "DateOfBirth" },
+  { id: 5, title: "PhoneNumber" },
+  { id: 6, title: "Sex" },
+  { id: 7, title: "CreatedAt" },
+  { id: 8, title: "Blocked" },
+  { id: 9, title: "Role" },
+  { id: 10, title: "Action", style: "text-center" },
 ];
