@@ -1,16 +1,19 @@
 "use client";
 import { apiDeleteCourse, apiGetAllCourse } from "@/api/admin";
 import { FieldsTableCourse } from "@/utils/contants";
-import { Course } from "@/utils/type";
+import { Courses } from "@/utils/type";
 import { AxiosError, AxiosResponse } from "axios";
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
+import { RoutesAdmin } from "@/utils/path";
 
 const Page: FC = ({}) => {
-  const [courses, setCourses] = useState<Course | null>(null);
+  const router = useRouter();
+  const [courses, setCourses] = useState<Courses | null>(null);
   const [update, setUpdate] = useState<boolean>(false);
   const render = () => setUpdate((prev) => !prev);
 
@@ -72,13 +75,13 @@ const Page: FC = ({}) => {
           </div>
         </div>
         <div className="bg-white mt-[3%] rounded-2xl w-full h-full p-6 shadow-sidebar">
-          <table className="table-auto w-full border">
-            <thead className="bg-[#364152] text-white">
+          <table className="table-auto w-full border  ">
+            <thead className="bg-[#364152] text-white ">
               <tr>
                 {FieldsTableCourse.map((el) => (
                   <th
                     key={el.id}
-                    className={`text-3xl font-bold p-4 border ${
+                    className={`text-3xl font-bold p-4 border${
                       el.style ? el.style : "text-center"
                     }`}
                   >
@@ -89,7 +92,15 @@ const Page: FC = ({}) => {
             </thead>
             <tbody className="text-2xl">
               {courses?.courses.map((el) => (
-                <tr key={el._id}>
+                <tr
+                  key={el._id}
+                  className=" cursor-pointer"
+                  onClick={() =>
+                    router.push(
+                      `/${RoutesAdmin.ADMIN}/${RoutesAdmin.COURSE}/${el._id}`
+                    )
+                  }
+                >
                   <td className="border-r text-start px-4 text-xl">{el._id}</td>
                   <td className="border-r text-center">{el.title}</td>
                   <td className="border-r text-center">{el.view}</td>

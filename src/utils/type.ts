@@ -45,6 +45,11 @@ export type TitemSidebar = {
   lastIcon?: IconProp;
 };
 
+export type Users = {
+  counts: number;
+  users: User[];
+};
+
 export type User = {
   avatar: string;
   createdAt: string;
@@ -80,22 +85,31 @@ export type CreateCourse = {
   slot: number;
 };
 
-export type Course = {
+export type Courses = {
   counts: number;
-  courses: {
-    _id: string;
-    view: number;
-    chapter: any[];
-    createdAt: string;
-    title: string;
-    updatedAt: string;
-    description: string;
-    promise: string[];
-    thumbnail: {
-      publicId: string;
-      path: string;
-    };
-  }[];
+  courses: Course[];
+};
+
+export type Course = {
+  _id: string;
+  view: number;
+  chapter: any[];
+  createdAt: string;
+  title: string;
+  updatedAt: string;
+  description: string;
+  promise: string[];
+  thumbnail: {
+    publicId: string;
+    path: string;
+  };
+  info: {
+    openingDay: string;
+    area: string;
+    schedule: string;
+    duration: string;
+    slot: number;
+  };
 };
 
 export type CreateInfo = {};

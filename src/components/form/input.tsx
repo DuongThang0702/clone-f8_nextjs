@@ -12,7 +12,7 @@ interface InputForm {
   errors?: string;
   validate?: object;
   style?: string;
-  defaultValue?: string | number;
+  defaultValue?: string | number | any;
   styleLabel?: string;
   register: UseFormRegister<any>;
 }

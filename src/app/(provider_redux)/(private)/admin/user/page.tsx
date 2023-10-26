@@ -1,7 +1,7 @@
 "use client";
 import { apiDeleteUser, apiGetAllUsers } from "@/api";
 import { FieldsTableAdmin } from "@/utils/contants";
-import { User } from "@/utils/type";
+import { Users } from "@/utils/type";
 import { AxiosError, AxiosResponse } from "axios";
 import { FC, useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -9,7 +9,7 @@ import moment from "moment";
 import Swal from "sweetalert2";
 
 const Page: FC = ({}) => {
-  const [users, setUsers] = useState<User[] | null>(null);
+  const [users, setUsers] = useState<Users | null>(null);
   const [update, setUpdate] = useState<boolean>(false);
   const render = () => setUpdate((prev) => !prev);
   const fetchDataUser = async () => {
@@ -67,7 +67,7 @@ const Page: FC = ({}) => {
         </thead>
         <tbody className="text-xl">
           {users !== null &&
-            users.map((el) => (
+            users.users.map((el) => (
               <tr key={el._id} className="">
                 <td className="text-start text-mainSize border-r border-b p-4">
                   {el._id}
