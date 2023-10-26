@@ -5,3 +5,6 @@ export const apiGetAllCourse = () =>
 
 export const apiCreateCourse = (data: object) =>
   axiosClient({ url: "/course", method: "post", data });
+
+export const apiDeleteCourse = (cid: string) =>
+  axiosClient({ url: `/course/${cid}`, method: "delete" });

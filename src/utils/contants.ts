@@ -95,3 +95,12 @@ export const FieldsTableAdmin: itemTable[] = [
   { id: 9, title: "Role" },
   { id: 10, title: "Action", style: "text-center" },
 ];
+
+export const FieldsTableCourse: itemTable[] = [
+  { id: 1, title: "#", style: "text-start" },
+  { id: 2, title: "Title" },
+  { id: 3, title: "View" },
+  { id: 4, title: "Thumbnail" },
+  { id: 5, title: "CreatedAt" },
+  { id: 6, title: "Action" },
+];

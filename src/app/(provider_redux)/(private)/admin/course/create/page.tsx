@@ -31,7 +31,6 @@ const Page: FC = ({}) => {
     for (let i of Object.entries(finalPayload))
       formData.append(i[0], i[1] as string);
     formData.append("thumbnail", watch("thumbnail")[0]);
-
     await apiCreateCourse(formData)
       .then((rs: AxiosResponse) => {
         if (rs.status >= 400 && rs.status <= 599) {

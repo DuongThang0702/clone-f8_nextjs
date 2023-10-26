@@ -1,13 +1,18 @@
 "use client";
-import { apiGetAllCourse } from "@/api/admin";
+import { apiDeleteCourse, apiGetAllCourse } from "@/api/admin";
+import { FieldsTableCourse } from "@/utils/contants";
 import { Course } from "@/utils/type";
 import { AxiosError, AxiosResponse } from "axios";
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import moment from "moment";
+import Swal from "sweetalert2";
 
 const Page: FC = ({}) => {
   const [courses, setCourses] = useState<Course | null>(null);
+  const [update, setUpdate] = useState<boolean>(false);
+  const render = () => setUpdate((prev) => !prev);
 
   const fetch = async () =>
     await apiGetAllCourse()
@@ -20,7 +25,28 @@ const Page: FC = ({}) => {
 
   useEffect(() => {
     fetch();
-  }, []);
+  }, [update]);
+
+  const handleDeleteCourse = async (cid: string) => {
+    Swal.fire({
+      title: "Are you sure",
+      text: "Are you ready remove this course",
+      showCancelButton: true,
+    })
+      .then(async (rs) => {
+        if (rs.isConfirmed) {
+          await apiDeleteCourse(cid).then((rs: AxiosResponse) => {
+            if (rs.status >= 400 && rs.status <= 599)
+              toast.error("Something went wrong!");
+            else {
+              render();
+              toast.success(`delete user ${cid} success`);
+            }
+          });
+        }
+      })
+      .catch((err: AxiosError) => toast.error("Something went wrong!"));
+  };
 
   return (
     <div
@@ -46,19 +72,56 @@ const Page: FC = ({}) => {
           </div>
         </div>
         <div className="bg-white mt-[3%] rounded-2xl w-full h-full p-6 shadow-sidebar">
-          {courses?.courses.map((el) => (
-            <div key={el._id}>
-              <div className="w-[25rem] h-[25rem]">
-                <Image
-                  alt="image"
-                  height={1000}
-                  width={1000}
-                  src={el.thumbnail.path}
-                />
-              </div>
-              <h1>{el.title}</h1>
-            </div>
-          ))}
+          <table className="table-auto w-full border">
+            <thead className="bg-[#364152] text-white">
+              <tr>
+                {FieldsTableCourse.map((el) => (
+                  <th
+                    key={el.id}
+                    className={`text-3xl font-bold p-4 border ${
+                      el.style ? el.style : "text-center"
+                    }`}
+                  >
+                    {el.title}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="text-2xl">
+              {courses?.courses.map((el) => (
+                <tr key={el._id}>
+                  <td className="border-r text-start px-4 text-xl">{el._id}</td>
+                  <td className="border-r text-center">{el.title}</td>
+                  <td className="border-r text-center">{el.view}</td>
+                  <td className="border-r w-[6rem]">
+                    <div className="w-full h-full">
+                      <Image
+                        src={el.thumbnail.path}
+                        height={100}
+                        width={100}
+                        alt="image"
+                        className="p-4"
+                      />
+                    </div>
+                  </td>
+                  <td className="border-r text-center">
+                    {moment(el.createdAt).format("DD/MM/YYYY")}
+                  </td>
+                  <td className=" flex gap-x-6 text-start text-mainSize w-full h-full p-4 justify-center items-center">
+                    <div
+                      className="bg-red-600 text-white p-6 rounded-2xl cursor-pointer"
+                      onClick={() => handleDeleteCourse(el._id)}
+                    >
+                      Delete
+                    </div>
+                    <div className="bg-yellow-500 text-white p-6 rounded-2xl">
+                      Update
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
