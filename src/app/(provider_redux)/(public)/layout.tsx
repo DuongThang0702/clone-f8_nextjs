@@ -30,16 +30,15 @@ export default function PulicLayout({
       />
       <HeaderHomePage />
       <div className="h-[8rem] w-full"></div>
-      <div className="h-full w-full flex relative">
-        <div className="absolute top-0 left-0 bottom-0">
+      <div className="min-h-[100vh] w-full flex">
+        <div className="absolute top-[10rem] left-0 bottom-0 z-50">
           <SidebarHomePage />
         </div>
         <div className="w-[9rem] flex-none"></div>
-        <div className="w-[95%] h-full mx-auto flex flex-col gap-y-20">
+        <div className="w-[95%] h-max mx-auto overflow-y-scroll flex flex-col gap-y-20">
           {children}
         </div>
       </div>
-      <div className="w-[9rem] flex-none"></div>
       <FooterHomePage />
     </div>
   );

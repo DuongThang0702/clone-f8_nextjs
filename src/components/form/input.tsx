@@ -33,7 +33,10 @@ const inputForm: FC<InputForm> = ({
 }) => {
   return (
     <>
-      {(type === "text" || type === "password" || type === "number") && (
+      {(type === "text" ||
+        type === "password" ||
+        type === "number" ||
+        type === "date") && (
         <>
           <input
             type={type}

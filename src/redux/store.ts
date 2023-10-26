@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import appSlice from "./app";
 import userSlice from "./user";
+import courselice from "./course";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
-const isClient = typeof window !== "undefined";
 
 const commonConfig = {
   key: "ShortCourse/user",
@@ -18,6 +18,7 @@ const userConfig = {
 export const store = configureStore({
   reducer: {
     app: appSlice,
+    course: courselice,
     user: persistReducer<any>(userConfig, userSlice),
   },
   middleware: (getDefaultMiddleware) =>

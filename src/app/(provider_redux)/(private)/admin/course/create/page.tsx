@@ -34,7 +34,6 @@ const Page: FC = ({}) => {
 
     await apiCreateCourse(formData)
       .then((rs: AxiosResponse) => {
-        console.log(rs);
         if (rs.status >= 400 && rs.status <= 599) {
           toast.error(rs.data.message.map((el: string[]) => el[0]));
         } else {
@@ -198,6 +197,87 @@ const Page: FC = ({}) => {
             <div className="text-2xl rounded-2xl bg-[#F9FAFD] text-black font-semibold px-8 py-6">
               Details
             </div>
+            <div className="px-8 py-6 flex flex-col gap-y-10">
+              <div className="flex gap-x-10">
+                <div className="w-full flex flex-col gap-y-4">
+                  <label
+                    htmlFor="openingDay"
+                    className="text-2xl font-semibold text-gray-700 px-2"
+                  >
+                    Opening day:
+                  </label>
+                  <InputField
+                    errors={errors.openingDay?.message}
+                    register={register}
+                    type="date"
+                    id="openingDay"
+                    style="p-4 text-2xl rounded-xl border-2 border-[#D8E2EF] focus:outline-[#D8E2EF]"
+                  />
+                </div>
+                <div className="w-full flex flex-col gap-y-4">
+                  <label
+                    htmlFor="area"
+                    className="text-2xl font-semibold text-gray-700 px-2"
+                  >
+                    Localtion:
+                  </label>
+                  <InputField
+                    errors={errors.area?.message}
+                    register={register}
+                    id="area"
+                    style="p-4 text-2xl rounded-xl border-2 border-[#D8E2EF] focus:outline-[#D8E2EF]"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-x-10">
+                <div className="w-full flex flex-col gap-y-4">
+                  <label
+                    htmlFor="schedule"
+                    className="text-2xl font-semibold text-gray-700 px-2"
+                  >
+                    Schedule:
+                  </label>
+                  <InputField
+                    errors={errors.schedule?.message}
+                    register={register}
+                    id="schedule"
+                    style="p-4 text-2xl rounded-xl border-2 border-[#D8E2EF] focus:outline-[#D8E2EF]"
+                  />
+                </div>
+                <div className="w-full flex flex-col gap-y-4">
+                  <label
+                    htmlFor="duration"
+                    className="text-2xl font-semibold text-gray-700 px-2"
+                  >
+                    Duration:
+                  </label>
+                  <InputField
+                    errors={errors.duration?.message}
+                    register={register}
+                    type="number"
+                    id="duration"
+                    style="p-4 text-2xl rounded-xl border-2 border-[#D8E2EF] focus:outline-[#D8E2EF]"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-4">
+                  <label
+                    htmlFor="slot"
+                    className="text-2xl font-semibold text-gray-700 px-2"
+                  >
+                    Slot:
+                  </label>
+                  <InputField
+                    errors={errors.slot?.message}
+                    register={register}
+                    type="number"
+                    id="slot"
+                    style="p-4 text-2xl rounded-xl border-2 border-[#D8E2EF] focus:outline-[#D8E2EF]"
+                  />
+                </div>
+              </div>
+            </div>
+
             <div className="px-8 py-6 flex flex-col gap-y-10">
               <label className="text-2xl font-semibold text-gray-700 px-2">
                 Description:

@@ -73,4 +73,29 @@ export type CreateCourse = {
   promise: string;
   price: number;
   thumbnail: { 0: File; length: number };
+  openingDay: string;
+  area: string;
+  schedule: string;
+  duration: string;
+  slot: number;
 };
+
+export type Course = {
+  counts: number;
+  courses: {
+    _id: string;
+    view: number;
+    chapter: any[];
+    createdAt: string;
+    title: string;
+    updatedAt: string;
+    description: string;
+    promise: string[];
+    thumbnail: {
+      publicId: string;
+      path: string;
+    };
+  }[];
+};
+
+export type CreateInfo = {};

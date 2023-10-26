@@ -4,7 +4,7 @@ import { FC } from "react";
 const Page: FC = ({}) => {
   return (
     <>
-      <div className="w-full h-[40rem] bg-[#181821] mt-32 text-white py-32 text-mainSize">
+      <div className="w-full h-full bg-[#181821] mt-auto text-white py-32 text-mainSize">
         <div className="w-2/3 h-full m-auto grid grid-cols-5 gap-x-10">
           <div className="flex flex-col gap-y-2">
             <div className="flex items-center gap-x-4 mb-4">

@@ -40,12 +40,10 @@ const Page: FC<Props> = ({ items }) => {
                 className="text-[2rem] opacity-70"
               />
             </div>
-            {el.text ? (
+            {el.text && (
               <h1 className="font-semibold text-[1.2rem] space-x-3">
                 {el.text}
               </h1>
-            ) : (
-              <></>
             )}
           </Link>
         ) : (
@@ -62,15 +60,13 @@ const Page: FC<Props> = ({ items }) => {
                   icon={el.icon}
                   className={`text-[2rem] ${
                     isActiveTabParent ? `rotate-45` : ``
-                  }  transition ease-linear duration-200 group-hover:scale-125`}
+                  }  transition ease-linear duration-200 group-hover:scale-125 py-2 px-7`}
                 />
               </div>
-              {el.text ? (
+              {el.text && (
                 <h1 className="font-semibold text-[1.2rem] space-x-3">
                   {el.text}
                 </h1>
-              ) : (
-                <></>
               )}
             </div>
             {isActiveTabParent && el.child && <SubMenu subItems={el.child} />}
