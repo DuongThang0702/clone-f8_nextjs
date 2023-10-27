@@ -13,7 +13,9 @@ const Page: FC = ({}) => {
   return (
     <div className="w-full h-max">
       <BannerHomePage />
-      <Course />
+      <div className="mt-20">
+        <Course />
+      </div>
     </div>
   );
 };

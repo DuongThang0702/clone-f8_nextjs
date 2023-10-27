@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginModal, OptionsHomePage } from "..";
 import { getUserCurrent } from "@/redux/user/asyncAction";
+import { getAllCourse } from "@/redux/course/asyncAction";
 
 const Page: FC = ({}) => {
   const router = useRouter();

@@ -1,24 +1,25 @@
 import { _mockBanner } from "@/_mock";
 import { Routes } from "@/utils/path";
+import { Course, Courses } from "@/utils/type";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
 interface Props {
-  items: _mockBanner[];
+  items: Courses;
 }
 
 const Page: FC<Props> = ({ items }) => {
   return (
     <>
-      <div className="flex gap-10 mt-10">
-        {items.map((el) => (
-          <div key={el.id} className="group">
-            <Link href={`${Routes.COURSE}/${el.id.toString()}`}>
-              <div className="flex flex-col gap-y-6">
-                <div className="relative">
+      <div className="grid gap-10 mt-10 grid-cols-4">
+        {items.courses.map((el) => (
+          <div key={el._id} className="group">
+            <Link href={`${Routes.COURSE}/${el._id}`}>
+              <div className="flex flex-col gap-y-4">
+                <div className="relative w-[40rem] h-full">
                   <Image
-                    src={el.thumbnail}
+                    src={el.thumbnail.path}
                     height={1000}
                     width={1000}
                     alt="img"
@@ -33,7 +34,7 @@ const Page: FC<Props> = ({ items }) => {
                     </button>
                   </div>
                 </div>
-                <h1 className="text-3xl font-semibold">{el.title}</h1>
+                <h1 className="text-2xl font-semibold px-2">{el.title}</h1>
               </div>
             </Link>
           </div>

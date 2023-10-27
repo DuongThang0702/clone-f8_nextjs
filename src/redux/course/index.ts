@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import * as actions from "./asyncAction";
-import { Course } from "@/utils/type";
+import { Course, Courses } from "@/utils/type";
 
 // interface Payload {
 //   courses: Course[];
 // }
 
 const initialState = {
-  courses: null as Course | null,
+  courses: null as Courses | null,
 };
 
 export const courseSlice = createSlice({
