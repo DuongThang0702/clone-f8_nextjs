@@ -3,7 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 
 interface MarkDownEditor {
   defaultValue?: string;
-  setDescription: Dispatch<SetStateAction<string | null>>;
+  setDescription: Dispatch<SetStateAction<string | null | any>>;
 }
 
 const MarkDownEditor: FC<MarkDownEditor> = ({
@@ -19,7 +19,6 @@ const MarkDownEditor: FC<MarkDownEditor> = ({
         init={{
           height: 500,
           menubar: true,
-
           content_style:
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}

@@ -31,7 +31,7 @@ export default function PulicLayout({
       <HeaderHomePage />
       <div className="h-[8rem] w-full"></div>
       <div className="min-h-[100vh] w-full flex">
-        <div className="absolute top-[10rem] left-0 bottom-0 z-50">
+        <div className="absolute top-[10rem] left-0 bottom-0 z-30">
           <SidebarHomePage />
         </div>
         <div className="w-[9rem] flex-none"></div>

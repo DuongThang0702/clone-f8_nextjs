@@ -79,7 +79,7 @@ const Page: FC<Props> = ({ params }) => {
                   </div>
                 </div>
                 <div className="flex flex-auto w-[10%] flex-col items-center">
-                  {course && (
+                  <div className="relative w-[50rem] h-full">
                     <Image
                       src={course.thumbnail.path}
                       height={1000}
@@ -87,7 +87,7 @@ const Page: FC<Props> = ({ params }) => {
                       alt="thumbnail"
                       className="rounded-3xl"
                     />
-                  )}
+                  </div>
                   <Link
                     href={`${Routes.OPENING_DAY}/${course._id}`}
                     className="flex w-[30%] items-center justify-center mt-8 

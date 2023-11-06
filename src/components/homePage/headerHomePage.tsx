@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, Fragment } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginModal, OptionsHomePage } from "..";
@@ -32,6 +32,15 @@ const Page: FC = ({}) => {
   }, [isLoggedIn, dispatch]);
 
   const handleSearch = (data: any) => console.log(data);
+  useEffect(() => {
+    const options = document.getElementById("options");
+    const handleShowOptions = (e: MouseEvent) => {
+      if (!options?.contains(e.target as Node)) setIsShowOptions(false);
+    };
+    document.addEventListener("click", handleShowOptions);
+    return () => removeEventListener("click", handleShowOptions);
+  }, []);
+
   return (
     <>
       <div className="fixed top-0 bg-white right-0 left-0 z-30">
@@ -85,7 +94,7 @@ const Page: FC = ({}) => {
             />
           </form>
           {isLoggedIn && current ? (
-            <div className="w-[14%] h-[59%] my-auto relative">
+            <div className="w-[14%] h-[59%] my-auto relative" id="options">
               <div className="text-2xl flex items-center justify-center h-full gap-x-8">
                 <h1 className="select-none ">Welcome, {current.fullname}</h1>
                 <div
@@ -100,11 +109,13 @@ const Page: FC = ({}) => {
                   />
                 </div>
               </div>
-              {isShowOptions && (
-                <div className="absolute left-[6rem] top-[4.5rem]">
-                  <OptionsHomePage user={current} />
-                </div>
-              )}
+              <>
+                {isShowOptions && (
+                  <div className="absolute left-[6rem] top-[4.5rem]">
+                    <OptionsHomePage user={current} />
+                  </div>
+                )}
+              </>
             </div>
           ) : (
             <div

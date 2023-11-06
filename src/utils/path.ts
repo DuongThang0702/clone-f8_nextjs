@@ -15,4 +15,5 @@ export enum RoutesAdmin {
   COURSE = "course",
   MANAGE_COURSE = "manage",
   CREATE_COURSE = "create",
+  CREATE_CHAPTER = "create-chapter",
 }

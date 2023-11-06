@@ -92,15 +92,7 @@ const Page: FC = ({}) => {
             </thead>
             <tbody className="text-2xl">
               {courses?.courses.map((el) => (
-                <tr
-                  key={el._id}
-                  className=" cursor-pointer"
-                  onClick={() =>
-                    router.push(
-                      `/${RoutesAdmin.ADMIN}/${RoutesAdmin.COURSE}/${el._id}`
-                    )
-                  }
-                >
+                <tr key={el._id}>
                   <td className="border-r text-start px-4 text-xl">{el._id}</td>
                   <td className="border-r text-center">{el.title}</td>
                   <td className="border-r text-center">{el.view}</td>
@@ -120,13 +112,30 @@ const Page: FC = ({}) => {
                   </td>
                   <td className=" flex gap-x-6 text-start text-mainSize w-full h-full p-4 justify-center items-center">
                     <div
-                      className="bg-red-600 text-white p-6 rounded-2xl cursor-pointer"
+                      className="bg-blue-600 text-white w-full text-center font-semibold p-6 rounded-2xl cursor-pointer"
+                      onClick={() =>
+                        router.push(
+                          `/${RoutesAdmin.ADMIN}/${RoutesAdmin.COURSE}/${RoutesAdmin.CREATE_CHAPTER}/${el._id}`
+                        )
+                      }
+                    >
+                      Add chapter
+                    </div>
+                    <div
+                      className="bg-yellow-400 text-white p-6 rounded-2xl w-full text-center font-semibold cursor-pointer"
+                      onClick={() =>
+                        router.push(
+                          `/${RoutesAdmin.ADMIN}/${RoutesAdmin.COURSE}/${el._id}`
+                        )
+                      }
+                    >
+                      Update Course
+                    </div>
+                    <div
+                      className="bg-red-600 text-white p-6 rounded-2xl w-full text-center font-semibold cursor-pointer"
                       onClick={() => handleDeleteCourse(el._id)}
                     >
                       Delete
-                    </div>
-                    <div className="bg-yellow-500 text-white p-6 rounded-2xl">
-                      Update
                     </div>
                   </td>
                 </tr>

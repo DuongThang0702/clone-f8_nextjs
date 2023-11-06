@@ -3,11 +3,10 @@ import { AppDispatch } from "@/redux/store";
 import { logout } from "@/redux/user";
 import { RoutesAdmin } from "@/utils/path";
 import { UserCurrent } from "@/utils/type";
-import { current } from "@reduxjs/toolkit";
 import { AxiosError, AxiosResponse } from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 

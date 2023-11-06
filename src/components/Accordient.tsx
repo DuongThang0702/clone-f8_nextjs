@@ -1,10 +1,10 @@
-import { chapter } from "@/_mock";
 import icon from "@/utils/icon";
+import { Chapter } from "@/utils/type";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC, useState } from "react";
 
 interface Props {
-  item: chapter;
+  item: Chapter;
 }
 
 const Page: FC<Props> = ({ item }) => {
@@ -25,7 +25,7 @@ const Page: FC<Props> = ({ item }) => {
           />
           <div className="flex gap-x-4 font-semibold">
             <div>
-              <span className="text-2xl">{item.titleChapter}</span>
+              <span className="text-2xl">{item.title}</span>
             </div>
           </div>
         </div>

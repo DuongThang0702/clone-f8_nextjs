@@ -93,7 +93,7 @@ export type Courses = {
 export type Course = {
   _id: string;
   view: number;
-  chapter: any[];
+  chapter: Chapter[];
   createdAt: string;
   title: string;
   updatedAt: string;
@@ -110,6 +110,22 @@ export type Course = {
     duration: string;
     slot: number;
   };
+};
+
+export type Chapter = {
+  _id: string;
+  title: string;
+  lesson: Lesson[];
+};
+
+export type Lesson = {
+  _id: string;
+  title: string;
+};
+
+export type CreateChapter = {
+  title: string;
+  lesson: string;
 };
 
 export type CreateInfo = {};

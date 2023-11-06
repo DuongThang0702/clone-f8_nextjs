@@ -46,8 +46,9 @@ const Page: FC = ({}) => {
   };
 
   useEffect(() => {
-    if (watch("thumbnail").length > 0)
+    if (watch("thumbnail") && watch("thumbnail").length > 0) {
       handlePreview(watch("thumbnail")[0], setPreview);
+    }
   }, [watch("thumbnail")]);
 
   return (
