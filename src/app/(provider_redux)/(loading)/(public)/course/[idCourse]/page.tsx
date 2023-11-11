@@ -79,11 +79,10 @@ const Page: FC<Props> = ({ params }) => {
                   </div>
                 </div>
                 <div className="flex flex-auto w-[10%] flex-col items-center">
-                  <div className="relative w-[50rem] h-full">
+                  <div className="relative w-[50rem] h-[26rem]">
                     <Image
                       src={course.thumbnail.path}
-                      height={1000}
-                      width={1000}
+                      fill
                       alt="thumbnail"
                       className="rounded-3xl"
                     />

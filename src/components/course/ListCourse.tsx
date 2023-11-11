@@ -17,12 +17,11 @@ const Page: FC<Props> = ({ items }) => {
           <div key={el._id} className="group">
             <Link href={`${Routes.COURSE}/${el._id}`}>
               <div className="flex flex-col gap-y-4">
-                <div className="relative w-[40rem] h-full">
+                <div className="relative w-[40rem] h-[20rem]">
                   <Image
                     src={el.thumbnail.path}
-                    height={1000}
-                    width={1000}
                     alt="img"
+                    fill
                     className="rounded-3xl"
                   />
                   <div

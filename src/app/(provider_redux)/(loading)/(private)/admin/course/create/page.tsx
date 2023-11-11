@@ -1,6 +1,8 @@
 "use client";
 import { apiCreateCourse } from "@/api";
-import { InputField, MarkdownEditor } from "@/components";
+import { InputField, Loading, MarkdownEditor } from "@/components";
+import { showLoading } from "@/redux/app";
+import { AppDispatch } from "@/redux/store";
 import { formatSizeUnits, handlePreview } from "@/utils/helper";
 import icon from "@/utils/icon";
 import { RoutesAdmin } from "@/utils/path";
@@ -11,9 +13,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
 const Page: FC = ({}) => {
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
   const [description, setDescription] = useState<string | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -23,7 +27,6 @@ const Page: FC = ({}) => {
     watch,
     formState: { errors, isDirty, isValid },
   } = useForm<CreateCourse>({});
-
   const handleCreateCourse = async (data: CreateCourse) => {
     const promise = watch("promise").split("\n");
     const finalPayload = { ...data, description, promise };

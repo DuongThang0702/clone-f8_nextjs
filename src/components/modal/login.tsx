@@ -17,7 +17,6 @@ import { login } from "@/redux/user";
 
 const Page: FC = ({}) => {
   const dispatch = useDispatch<AppDispatch>();
-  const modalRef = useRef<HTMLDivElement>(null);
 
   const schema = yup
     .object({
@@ -54,23 +53,11 @@ const Page: FC = ({}) => {
       .catch((err: AxiosError) => toast.error("Something went wrong"));
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (!modalRef.current) {
-        return;
-      }
-      if (!modalRef.current.contains(e.target as Node))
-        dispatch(showModel({ isShowModal: false, modalChildren: null }));
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => removeEventListener("click", handleClickOutside);
-  }, []);
-
   return (
     <div className="flex-none">
       <div
-        ref={modalRef}
-        className="w-[30%] h-full text-black px-10 py-16 bg-white rounded-3xl 
+        onClick={(e) => e.stopPropagation()}
+        className="w-[60%] h-full text-black px-10 py-16 bg-white rounded-3xl 
       mx-auto flex flex-col gap-y-14 items-center"
       >
         <div className="w-full">

@@ -12,6 +12,8 @@ export enum RoutesAdmin {
   ADMIN = "admin",
   DASHBOARD = "dash-board",
   USER = "user",
+  CREATE_USER = "create-user",
+  MANAGE_USER = "manage-user",
   COURSE = "course",
   MANAGE_COURSE = "manage",
   CREATE_COURSE = "create",

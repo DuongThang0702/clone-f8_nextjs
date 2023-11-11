@@ -1,8 +1,9 @@
 "use client";
 import { SidebarHomePage, HeaderHomePage, FooterHomePage } from "@/components";
-import { RootState } from "@/redux/store";
+import { showModel } from "@/redux/app";
+import { AppDispatch, RootState } from "@/redux/store";
 import NextNProgress from "nextjs-progressbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 export default function PulicLayout({
   children,
 }: {
@@ -11,12 +12,18 @@ export default function PulicLayout({
   const { isShowModal, modalChildren } = useSelector(
     (state: RootState) => state.app
   );
-
+  const dispatch = useDispatch<AppDispatch>();
+  const handleCloseModal = () => {
+    dispatch(showModel({ isShowModal: false, modalChildren: null }));
+  };
   return (
-    <div className="w-full h-full relative">
+    <div className="w-screen h-screen relative">
       {isShowModal && (
-        <div className="bg-blackOpacity w-full h-full fixed left-0 right-0 top-0 z-50">
-          <div className="relative max-w-full max-h-full top-[10%] left-[50%] translate-x-[-50%]">
+        <div
+          className="bg-blackOpacity w-full h-full fixed left-0 right-0 top-0 z-50"
+          onClick={handleCloseModal}
+        >
+          <div className="relative w-1/2 h-full top-[10%] left-[50%] translate-x-[-50%]">
             {modalChildren}
           </div>
         </div>

@@ -1,7 +1,7 @@
 import axiosClient from "../../config";
 
-export const apiGetAllCourse = () =>
-  axiosClient({ url: "/course", method: "get" });
+export const apiGetAllCourse = (query?: object) =>
+  axiosClient({ url: "/course", method: "get", params: query });
 
 export const apiCreateCourse = (data: object) =>
   axiosClient({ url: "/course", method: "post", data });

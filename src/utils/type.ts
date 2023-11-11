@@ -129,3 +129,11 @@ export type CreateChapter = {
 };
 
 export type CreateInfo = {};
+
+export type CreateUserByAdmin = {
+  email: string;
+  dateOfBirth: string;
+  phoneNumber: number;
+  fullname: string;
+  role: string;
+};

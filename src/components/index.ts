@@ -11,3 +11,5 @@ export { default as OptionsHomePage } from "./menu/menuOptionsHomepage";
 export { default as SidebarAdmin } from "./admin/sidebar";
 export { default as HeaderAdmin } from "./admin/header";
 export { default as MarkdownEditor } from "./form/markdownEditor";
+export { default as SelectForm } from "./form/selectForm";
+export { default as Loading } from "./effect/loading";

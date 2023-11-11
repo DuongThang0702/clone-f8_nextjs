@@ -17,6 +17,8 @@ import {
   faCirclePlus,
   faUpload,
   faEllipsis,
+  faUserPlus,
+  faPeopleRoof,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icon = {
@@ -38,5 +40,7 @@ const icon = {
   faCirclePlus,
   faUpload,
   faEllipsis,
+  faUserPlus,
+  faPeopleRoof,
 };
 export default icon;

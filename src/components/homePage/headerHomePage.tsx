@@ -41,6 +41,8 @@ const Page: FC = ({}) => {
     return () => removeEventListener("click", handleShowOptions);
   }, []);
 
+  console.log(isShowOptions);
+
   return (
     <>
       <div className="fixed top-0 bg-white right-0 left-0 z-30">

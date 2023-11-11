@@ -13,9 +13,26 @@ export const itemSidebar: TitemSidebar[] = [
   {
     id: 2,
     icon: icon.faPeopleGroup,
-    path: `/${RoutesAdmin.ADMIN}/${RoutesAdmin.USER}`,
     title: "User",
-    type: "single",
+    path: "",
+    lastIcon: icon.faPlus,
+    type: "parent",
+    options: [
+      {
+        id: 6,
+        icon: icon.faUserPlus,
+        path: `/${RoutesAdmin.ADMIN}/${RoutesAdmin.USER}/${RoutesAdmin.CREATE_USER}`,
+        type: "single",
+        title: "Create User",
+      },
+      {
+        id: 7,
+        icon: icon.faPeopleRoof,
+        path: `/${RoutesAdmin.ADMIN}/${RoutesAdmin.USER}/${RoutesAdmin.MANAGE_USER}`,
+        type: "single",
+        title: "Mange User",
+      },
+    ],
   },
   {
     id: 3,
@@ -103,4 +120,9 @@ export const FieldsTableCourse: itemTable[] = [
   { id: 4, title: "Thumbnail" },
   { id: 5, title: "CreatedAt" },
   { id: 6, title: "Action" },
+];
+
+export const optionsRole = [
+  { id: 1, value: process.env.NEXT_PUBLIC_ADMIN, text: "Admin" },
+  { id: 2, value: process.env.NEXT_PUBLIC_USER, text: "User" },
 ];

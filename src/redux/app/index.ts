@@ -6,7 +6,14 @@ interface Payload {
   isShowModal: boolean;
 }
 
+interface Loading {
+  isShowLoading: boolean;
+  componentLoading: React.ReactElement | null;
+}
+
 const initialState = {
+  isShowLoading: false,
+  componentLoading: null as React.ReactElement | null,
   isShowModal: false,
   modalChildren: null as React.ReactElement | null,
 };
@@ -19,8 +26,12 @@ export const appSlice = createSlice({
       state.isShowModal = payload.isShowModal;
       state.modalChildren = payload.modalChildren;
     },
+    showLoading: (state, { payload }: PayloadAction<Loading>) => {
+      state.isShowLoading = payload.isShowLoading;
+      state.componentLoading = payload.componentLoading;
+    },
   },
 });
 
-export const { showModel } = appSlice.actions;
+export const { showModel, showLoading } = appSlice.actions;
 export default appSlice.reducer;
